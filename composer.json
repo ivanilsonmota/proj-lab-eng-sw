@@ -1,7 +1,8 @@
 {
-    "name": "clients/api",
-    "description": "",
-
+    "name": "ivanilsonmota/proj-lab-eng-sw",
+    "description": "Projeto de desenvolvimento de um site para venda de veículos da matéria de Laboratório de Engenharia de Software.",
+    "minimum-stability": "stable",
+    "license": "MIT",
     "require": {
         "coffeecode/router": "^1.0",
         "coffeecode/datalayer": "^1.1",
