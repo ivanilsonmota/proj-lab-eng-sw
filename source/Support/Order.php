@@ -33,23 +33,18 @@ class Order
 
     */
 
-    //Place a order
-    public function placeOrder(string $car_model, int $automaker_protocol, string $client, string $dealership): Order
+    public function placeOrder(Client $cpf, Dealership $dealership, string $car_model, int $automaker_protocol): Order
     {
         $this->endpoint = "/pedidos";
         $this->build = [
+            "cliente" => $cpf,
+            "concessionaria" => $dealership,
             "modelo_carro" => $car_model,
-            "protocolo_montadora" => $automaker_protocol,
-            "cliente" => $client,
-            "concessionaria" => $dealership
+            "protocolo_montadora" => $automaker_protocol
         ];
 
         $this->post();
         return $this;
-    }
-
-    public function getOrderClient(Client $cpf){
-        
     }
 
     private function post()

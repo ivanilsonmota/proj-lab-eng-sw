@@ -4,9 +4,9 @@ namespace Source\App;
 
 
 use League\Plates\Engine;
-use Source\Models\User;
+use Source\Support\Order;
 
-class Web
+class WebController
 {
     private $view;
     public function __construct()
@@ -16,8 +16,6 @@ class Web
 
     public function home(): void
     {
-        /* $users = (new User)->find()->fetch(true);
-        var_dump($users); */
         echo $this->view->render("home", [
             "title" => "Home | " . SITE,
             "users" => "Ivanilson Pereira Mota"
@@ -26,9 +24,10 @@ class Web
 
     public function order(): void
     {
+        $orders = new Order();
         echo $this->view->render("order", [
-            "title" => "Contato " . SITE,
-            "order" => ""
+            "title" => "Pedidos | " . SITE,
+            "orders" => $orders
         ]);
     }
 
@@ -50,7 +49,7 @@ class Web
     public function error($data): void
     {
         echo $this->view->render("error", [
-            "title" => "Error " . $data['errcode'],
+            "title" => "Erro " . $data['errcode'],
             "error" => $data["errcode"]
         ]);
     }

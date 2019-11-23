@@ -18,6 +18,7 @@
             <a title="" href="<?= url("contato"); ?>">Contato</a>
             <a title="" href="<?= url("concessionarias"); ?>">Concessionárias</a>
             <a title="" href="<?= url("pedidos"); ?>">Pedidos</a>
+            <a title="" href="<?= url("api/v1/usuarios"); ?>">API</a>
         <?php
         endif;
         ?>
