@@ -4,6 +4,8 @@ define("URL_BASE", "http://127.0.0.1:8080/proj-lab-eng-sw");
 define("URL_AUTOMAKER", "");
 define("URL_DEALERSHIP", "");
 
+define("SITE", "VEÍCULOS");
+
 define("DATA_LAYER_CONFIG", [
     "driver" => "mysql",
     "host" => "localhost",
@@ -18,3 +20,13 @@ define("DATA_LAYER_CONFIG", [
         PDO::ATTR_CASE => PDO::CASE_NATURAL
     ]
 ]);
+
+
+function url($uri = null)
+{
+    if ($uri) {
+        return URL_BASE . "/{$uri}";
+    }
+
+    return URL_BASE;
+}

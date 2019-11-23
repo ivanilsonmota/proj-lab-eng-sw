@@ -15,7 +15,7 @@ class ComposerStaticInit6412b3f97d67a13d623f7b913173a34d
         'bdc465a053da7f7ddb072631f6d41d45' => __DIR__ . '/..' . '/league/plates/src/Extension/LayoutSections/layout-sections.php',
         'afa76803f24616d7599be3b7b0846adc' => __DIR__ . '/..' . '/league/plates/src/Extension/Folders/folders.php',
         '16c5be35e32c6cf916d875518b909210' => __DIR__ . '/..' . '/league/plates/src/Util/util.php',
-        '7668345ab91769cc41ce6fec33e4292b' => __DIR__ . '/../..' . '/source/Config.php',
+        '7a839f3b6009410b077d340177f359dd' => __DIR__ . '/../..' . '/source/Config.php',
     );
 
     public static $prefixLengthsPsr4 = array (

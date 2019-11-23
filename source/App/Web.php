@@ -37,7 +37,6 @@ class Web
 
         echo $this->view->render("contact", [
             "title" => "Contato | " . SITE,
-            "contact" => ""
         ]);
     }
 
@@ -45,7 +44,6 @@ class Web
     {
         echo $this->view->render("dealership", [
             "title" => "Concessionárias | " . SITE,
-            "dealership" => ""
         ]);
     }
 

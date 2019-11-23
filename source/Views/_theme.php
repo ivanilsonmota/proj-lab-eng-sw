@@ -16,7 +16,8 @@
             ?>
             <a title="" href="<?= url(); ?>">Home</a>
             <a title="" href="<?= url("contato"); ?>">Contato</a>
-            <a title="" href="<?= url("concessionaria"); ?>">Concessionárias</a>
+            <a title="" href="<?= url("concessionarias"); ?>">Concessionárias</a>
+            <a title="" href="<?= url("pedidos"); ?>">Pedidos</a>
         <?php
         endif;
         ?>
