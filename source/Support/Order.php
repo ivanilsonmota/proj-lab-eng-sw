@@ -50,7 +50,14 @@ class Order
     private function post()
     {
         $url = $this->apiUrl . $this->endpoint;
-        //$api = ["apiKey" => $this->apiKey];
+        
+        $data = array(
+            "" => "",
+            "" => "",
+            "" => "",
+            "" => ""
+        );
+
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
