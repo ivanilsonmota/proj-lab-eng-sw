@@ -12,6 +12,9 @@ class WebController
     public function __construct()
     {
         $this->view = Engine::create(__DIR__ . "/../Views", "php");
+
+        header('Cache-Control: no-cache, must-revalidate');
+        header('Content-Type: application/json; charset=utf-8');
     }
 
     public function home(): void
@@ -44,6 +47,11 @@ class WebController
         echo $this->view->render("dealership", [
             "title" => "Concessionárias | " . SITE,
         ]);
+    }
+
+    public function login(): void
+    {
+        echo "<h1>Login</h1>";
     }
 
     public function error($data): void

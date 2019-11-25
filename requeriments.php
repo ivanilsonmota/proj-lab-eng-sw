@@ -1,4 +1,4 @@
-<?php
+
 
 |||||||||||||||||||||||||||||
 | Uso da API Usuários: |
@@ -27,9 +27,11 @@ Exemplo de uso:
     ]
 }
 
+
 Atualizar usuário:
 PUT /api/v1/usuarios/{id}
 
+Exemplo de uso:
 {
     "data": [
         {

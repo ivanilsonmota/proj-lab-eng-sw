@@ -9,11 +9,13 @@ class Order
     private $endpoint;
     private $build;
     private $callback;
+    private $httpRequest;
 
     public function __construct()
     {
         $this->apiUrl = "/api";
-        //$this->apiKey = "";
+        $this->apiKey = "";
+        $this->httpRequest = new HttpRequest();
     }
 
     //Storage the data returned of api.
@@ -43,42 +45,10 @@ class Order
             "protocolo_montadora" => $automaker_protocol
         ];
 
-        $this->post();
+        $this->httpRequest::post($this->build,$this->apiUrl, $this->endpoint, $this->apiKey);
         return $this;
     }
 
-    private function post()
-    {
-        $url = $this->apiUrl . $this->endpoint;
-        
-        $data = array(
-            "" => "",
-            "" => "",
-            "" => "",
-            "" => ""
-        );
-
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($this->build)); //http_build_query(array_merge($this->build, $apiKey))
-        curl_setopt($ch, CURLOPT_HTTPHEADER, []);
-        $this->callback = json_decode(curl_exec($ch));
-        curl_close($ch);
-    }
-
-    private function get(int $id = null)
-    {
-        if (isset($id)) {
-            $url = $this->apiUrl . $this->endpoint . "/" . $id;
-        } else {
-            $url = $this->apiUrl . $this->endpoint;
-        }
-
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPGET, true);
-        $this->callback = json_decode(curl_exec($ch));
-        curl_close($ch);
-    }
+    
+    
 }
