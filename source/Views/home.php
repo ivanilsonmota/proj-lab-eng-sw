@@ -20,3 +20,19 @@
 
         endif; ?>
 </div>
+
+<?= $v->start("scripts"); ?>
+<script type="text/javascript">
+    /* var json = {
+        "data": [{
+            "first_name": "Usuário",
+            "last_name": "Sobrenome",
+            "email": "email@gmail.com",
+            "pwd": "senha"
+        }]
+    }
+
+    console.log(json.data[0].last_name); */
+</script>
+
+<?= $v->end(); ?>
