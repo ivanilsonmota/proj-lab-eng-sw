@@ -50,6 +50,3 @@ $router->dispatch();
 if ($router->error()) {
     $router->redirect("/ops/{$router->error()}");
 }
-
-
-

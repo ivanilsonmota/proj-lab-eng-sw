@@ -1,6 +1,6 @@
 <?php
 
-define("URL_BASE", "http://localhost:8080/proj-lab-eng-sw");
+define("URL_BASE", "http://127.0.0.1/proj-lab-eng-sw");
 define("URL_AUTOMAKER", "");
 define("URL_DEALERSHIP", "");
 
@@ -10,9 +10,9 @@ define("DATA_LAYER_CONFIG", [
     "driver" => "mysql",
     "host" => "127.0.0.1",
     "port" => "3306",
-    "dbname" => "frontend",
+    "dbname" => "proj_lab_eng_sw",
     "username" => "root",
-    "passwd" => "9876",
+    "passwd" => "",
     "options" => [
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,

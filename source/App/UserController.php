@@ -10,6 +10,7 @@ class UserController
     public function __construct()
     {
         $this->users = new User();
+        header("Content-Type: application/json");
     }
 
     public function getAll(): void
@@ -58,39 +59,35 @@ class UserController
     public function create(): void
     {
         $json = file_get_contents("php://input");
-        $json_content = json_encode(json_decode($json));
+        $json_content = json_decode($json);
 
-        foreach ($json_content as $usr) {
-            $user = $this->users;
-            $user->first_name = $usr[0]->first_name;
-            $user->last_name  = $usr[0]->last_name;
-            $user->email      = $usr[0]->email;
-            $user->pwd       =  md5($usr[0]->pwd);
-            $userId = $user->save();
+        $user = $this->users;
+        $user->first_name = $json_content->data[0]->first_name;
+        $user->last_name  = $json_content->data[0]->last_name;
+        $user->email      = $json_content->data[0]->email;
+        $user->pwd       =  md5($json_content->data[0]->pwd);
+        $userId = $user->save();
 
-            if ($userId) {
-                echo json_encode(array("success" => "Usuário registrado com sucesso!"));
-            } else {
-                echo json_encode(array("error_message" => "Não foi possível cadastrar o usuário!"));
-            }
+        if ($userId) {
+            echo json_encode(array("success" => "Usuário registrado com sucesso!"));
+        } else {
+            echo json_encode(array("error_message" => "Não foi possível cadastrar o usuário!"));
         }
     }
+
 
     public function update($data): void
     {
         $json = file_get_contents("php://input");
         $json_content = json_decode($json);
 
-        foreach ($json_content as $usr) {
-
-            $user = ($this->users)->findById($data["id"]);
-            $user->first_name = $usr[0]->first_name;
-            $user->last_name  = $usr[0]->last_name;
-            $user->email      = $usr[0]->email;
-            $user->pwd       =  md5($usr[0]->pwd);
-        }
-
+        $user = ($this->users)->findById($data["id"]);
+        $user->first_name = $json_content->data[0]->first_name;
+        $user->last_name  = $json_content->data[0]->last_name;
+        $user->email      = $json_content->data[0]->email;
+        $user->pwd       =  md5($json_content->data[0]->pwd);
         $userId = $user->save();
+
         if ($userId) {
             echo json_encode(array("success" => "Usuário atualizado com sucesso!"));
         } else {
