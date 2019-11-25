@@ -53,21 +53,3 @@ if ($router->error()) {
 
 
 
-   public function getByEmail($data){
-        if (($this->users)->find($data["id"])->count() > 0) {
-            $user_arr["data"] = array();
-            $user = ($this->users)->find($data["id"])->fetch();
-            $userItem = array(
-                "id"         => $user->id,
-                "first_name" => $user->first_name,
-                "last_name"  => $user->last_name,
-                "email"      => $user->email
-            );
-            array_push($user_arr["data"], $userItem);
-
-            echo json_encode($user_arr);
-        } else {
-            echo json_encode(array("error_message" => "Não existe usuário cadastrado com o email {$data["email"]}"));
-        }
-    } 
-
