@@ -1,17 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt_BR">
 
 <head>
     <title><?= $title; ?></title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="<?= url("Views/Assets/css/main.css"); ?>" />
-    <style type="text/css">
-        body {
-            background-color: #000;
-            color: #FFF;
-        }
-    </style>
+    <link rel="stylesheet" href="<?= url("source/Views/Assets/css/style.css"); ?>" />
 </head>
 
 <body>
@@ -20,15 +14,28 @@
             echo $v->section("sidebar");
         else :
             ?>
-            <a title="" href="<?= url(); ?>">Home</a>
-            <a title="" href="<?= url("contato"); ?>">Contato</a>
-            <a title="" href="<?= url("concessionarias"); ?>">Concessionárias</a>
-            <a title="" href="<?= url("pedidos"); ?>">Pedidos</a>
-            <a title="" href="<?= url("login"); ?>">Login</a>
-            <a title="" href="<?= url("api/v1/usuarios"); ?>">API</a>
+            <a href="<?= url(); ?>" title="">Home</a>
+            <a href="<?= url("contato"); ?>" title="">Contato</a>
+            <a href="<?= url("concessionarias"); ?>" title="">Concessionárias</a>
+            <a href="<?= url("pedidos"); ?>" title="">Pedidos</a>
+
+            <!-- <a href="<?= url("api/v1/usuarios"); ?>" title="">API</a> -->
+            <?php
+                if (isset($_SESSION["login"])) :
+                    ?>
+                <label>Bem vindo, </label><?= $_SESSION["login"]["user"]; ?>
+                <a href="<?= url("logout"); ?>" title="">Logout</a>
+            <?php
+                else :
+                    ?>
+                <a href="<?= url("login"); ?>" title="">Login</a>
+            <?php
+                endif;
+                ?>
         <?php
         endif;
         ?>
+
     </nav>
     <main class="main-content">
         <?= $v->section("content"); ?>
@@ -38,6 +45,7 @@
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script src="<?= url("/source/Views/Assets/js/script.css"); ?>"></script>
     <?= $v->section("scripts"); ?>
 </body>
 

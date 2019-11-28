@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require_once __DIR__ . "/vendor/autoload.php";
 
 use CoffeeCode\Router\Router;
@@ -24,14 +22,12 @@ $router->namespace("Source\App");
 
 $router->group(null);
 $router->get("/", "WebController:home");
-
 $router->get("/contato", "WebController:contact");
-
 $router->get("/pedidos", "WebController:order");
-
 $router->get("/concessionarias", "WebController:dealership");
-
 $router->get("/login", "WebController:login");
+$router->post("/login", "WebController:login");
+$router->get("/logout", "WebController:logout");
 
 //API Usuários
 $router->get("/api/v1/usuarios", "UserController:getAll");
