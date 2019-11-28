@@ -1,6 +1,8 @@
 <?php
 
 define("URL_BASE", "http://127.0.0.1/proj-lab-eng-sw");
+define("ASSETS_DIR", "/source/Views/");
+
 define("URL_AUTOMAKER", "");
 define("URL_DEALERSHIP", "");
 
@@ -12,7 +14,7 @@ define("DATA_LAYER_CONFIG", [
     "port" => "3306",
     "dbname" => "proj_lab_eng_sw",
     "username" => "root",
-    "passwd" => "",
+    "passwd" => "", 
     "options" => [
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -22,7 +24,7 @@ define("DATA_LAYER_CONFIG", [
 ]);
 
 
-function url($uri = null)
+function url(string $uri = null): string
 {
     if ($uri) {
         return URL_BASE . "/{$uri}";

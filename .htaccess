@@ -1,5 +1,10 @@
 RewriteEngine On
 Options All -Indexes
+Options +FollowSymLinks -MultiViews
+
+RewriteRule ^css/(.*)$ /source/Views/Assets/css/$1 [NC,L]
+RewriteRule ^js/(.*)$ /source/Views/Assets/js/$1 [NC,L]
+RewriteRule ^images/(.*)$ /source/Views/Assets/images/$1 [NC,L]
 
 # ROUTER WWW Redirect.
 # RewriteCond %{HTTP_HOST} !^www\. [NC]
@@ -14,3 +19,4 @@ Options All -Indexes
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?route=/$1 [L,QSA]
+
