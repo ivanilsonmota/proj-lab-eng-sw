@@ -1,3 +1,7 @@
 Backup/*
 examples/*
+<<<<<<< HEAD
+=======
+examples/index.php
+>>>>>>> 331ff6d45e1d867b09d209e5219a2323131ccc5d
 vendor/*

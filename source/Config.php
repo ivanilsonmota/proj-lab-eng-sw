@@ -1,6 +1,10 @@
 <?php
 
 define("URL_BASE", "http://127.0.0.1/proj-lab-eng-sw");
+<<<<<<< HEAD
+=======
+define("ASSETS_DIR", "/source/Views/");
+>>>>>>> 331ff6d45e1d867b09d209e5219a2323131ccc5d
 
 define("URL_AUTOMAKER", "");
 define("URL_DEALERSHIP", "");
@@ -13,8 +17,13 @@ define("DATA_LAYER_CONFIG", [
     "port"     => "3306",
     "dbname"   => "proj_lab_eng_sw",
     "username" => "root",
+<<<<<<< HEAD
     "passwd"   => "",
     "options"  => [
+=======
+    "passwd" => "", 
+    "options" => [
+>>>>>>> 331ff6d45e1d867b09d209e5219a2323131ccc5d
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
@@ -40,7 +49,10 @@ define("CONF_SMTP_MAIL", [
     "from_email" => "marcio.silva@sangincio.com"
 ]);
 
+<<<<<<< HEAD
 /** Helper function */
+=======
+>>>>>>> 331ff6d45e1d867b09d209e5219a2323131ccc5d
 function url(string $uri = null): string
 {
     if ($uri) {
