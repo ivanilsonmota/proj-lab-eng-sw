@@ -48,7 +48,6 @@ $router->dispatch();
 if ($router->error()) {
     $router->redirect("/ops/{$router->error()}");
 }
-<<<<<<< HEAD
 
 
 // Send emails
@@ -66,5 +65,3 @@ if(!$email->error()){
 }else{
     echo $email->error()->getMessage();
 }
-=======
->>>>>>> 331ff6d45e1d867b09d209e5219a2323131ccc5d
