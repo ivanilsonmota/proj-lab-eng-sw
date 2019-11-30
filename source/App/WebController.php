@@ -2,7 +2,6 @@
 
 namespace Source\App;
 
-
 use League\Plates\Engine;
 use Source\Models\User;
 use Source\Support\Order;

@@ -4,7 +4,10 @@ require_once __DIR__ . "/vendor/autoload.php";
 
 use CoffeeCode\Router\Router;
 use CoffeeCode\DataLayer\Connect;
+use Source\Support\Email;
 
+
+// Open instance connection database;
 $conn = Connect::getInstance();
 $error = Connect::getError();
 
@@ -13,11 +16,9 @@ if ($error) {
     die();
 }
 
+// Create routers
 $router = new Router(URL_BASE);
 
-/*
-* Controllers
-*/
 $router->namespace("Source\App");
 
 $router->group(null);
@@ -37,12 +38,30 @@ $router->put("/api/v1/usuarios/{id}", "UserController:update");
 $router->delete("/api/v1/usuarios/{id}", "UserController:delete");
 
 
-
+// Error pages control
 $router->group("ops");
 $router->get("/{errcode}", "WebController:error");
 
+// Routes manager
 $router->dispatch();
 
 if ($router->error()) {
     $router->redirect("/ops/{$router->error()}");
+}
+
+
+// Send emails
+$email = new Email();
+
+$email->add(
+    "Olá, Mundo! Esse é meu segundo e-mail",
+    "<h1>Segundo e-mail!</h1>",
+    "Ivanilson Pereira Mota",
+    "ivanilsonmota@outlook.com"
+);
+
+if(!$email->error()){
+    var_dump(true);
+}else{
+    echo $email->error()->getMessage();
 }

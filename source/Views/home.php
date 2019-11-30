@@ -13,7 +13,7 @@
                 endforeach;
             else :
                 ?>
-            <h4>Não existem usuários cadastrados!;
+            <h4>Não existem usuários cadastrados!
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, eligendi.</p>
 
             <?php
