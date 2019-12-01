@@ -2,10 +2,9 @@
 
 namespace Source\Support;
 
+use PHPMailer\PHPMailer\PHPMailer;
 use stdClass;
 use Exception;
-use PHPMailer\PHPMailer\PHPMailer;
-
 
 class Email
 {

@@ -57,11 +57,14 @@ $email->add(
     "Olá, Mundo! Esse é meu segundo e-mail",
     "<h1>Segundo e-mail!</h1>",
     "Ivanilson Pereira Mota",
-    "ivanilsonmota@outlook.com"
-);
+    "ivanilsonmota@gmail.com"
+)->attach(
+    "source/Views/Assets/files/01.pdf",
+    "OrcamentoTerabyte.pdf"
+)/* ->send() */;
 
 if(!$email->error()){
-    var_dump(true);
+    echo "E-mail enviado com sucesso!";
 }else{
     echo $email->error()->getMessage();
 }
